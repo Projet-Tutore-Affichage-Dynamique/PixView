@@ -1,0 +1,13 @@
+.env
+.env.dev
+.env.prod
+
+# API PIX VIEW
+api_pixview/data
+
+# APP VIEWER
+node_modules
+
+
+#
+.idea

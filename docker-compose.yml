@@ -1,0 +1,71 @@
+version: '3'
+services:
+
+  database:
+    container_name: database
+    image: mysql:5.7
+    env_file:
+      - ./api_pixview/.env.dev
+    volumes:
+      - ./api_pixview/data/database:/var/lib/mysql
+      - ./mysql/scritp_pixview_1.0.sql:/docker-entrypoint-initdb.d/scritp_pixview_1.0.sql
+    ports:
+      - "3306:3306"
+    networks:
+      - directus
+
+  phpmyadmin:
+    container_name: phpmyadmin
+    image: phpmyadmin/phpmyadmin
+    networks:
+      - directus
+    depends_on:
+      - database
+    env_file:
+      - ./api_pixview/.env.dev
+    restart: always
+    ports:
+      - "8080:80"
+
+  cache:
+    container_name: cache
+    image: redis:6
+    networks:
+      - directus
+
+  #################
+  ## API PIXVIEW ##
+  #################
+  directus:
+    container_name: directus
+    image: directus/directus:latest
+    ports:
+      - "8056:8055"
+    volumes:
+      - ./api_pixview:/directus/
+    networks:
+      - directus
+    depends_on:
+      - cache
+      - database
+    env_file:
+      - ./api_pixview/.env.dev
+
+  ################
+  ## APP VIEWER ##
+  ################
+  app.viewer:
+    container_name: app.viewer
+    image: node
+    ports:
+      - "19180:3000"
+    volumes:
+      - ./app_viewer:/usr/src/app
+      - ./app_viewer/node_modules:/usr/src/outside/node_modules
+    working_dir: /usr/src/app
+    command: bash -c 'npm i && npm run start'
+    networks:
+      - directus
+
+networks:
+  directus:
