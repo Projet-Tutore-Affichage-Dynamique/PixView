@@ -1,5 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
+<<<<<<< HEAD
+  <head>
+    <meta charset="utf-8">
+    <title>myapp</title>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script src="/dist/build.js"></script>
+    <script type="text/javascript">
+      window.onload = maxWindow;
+
+      function maxWindow() {
+        window.moveTo(0, 0);
+
+        if (document.all) {
+          top.window.resizeTo(screen.availWidth, screen.availHeight);
+        }
+
+        else if (document.layers || document.getElementById) {
+          if (top.window.outerHeight < screen.availHeight || top.window.outerWidth < screen.availWidth) {
+            top.window.outerHeight = screen.availHeight;
+            top.window.outerWidth = screen.availWidth;
+          }
+        }
+      }
+    </script>
+  </body>
+</html>
+=======
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -17,3 +46,4 @@
     <script src="./test.js"></script>
 </body>
 </html>
+>>>>>>> b3691e32cc68877974f860f02dd4c71c3c62708d
