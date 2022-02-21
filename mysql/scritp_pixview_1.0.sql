@@ -1,9 +1,9 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.2
+-- version 5.1.3
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : database:3306
--- Généré le : jeu. 10 fév. 2022 à 09:38
+-- Généré le : mar. 15 fév. 2022 à 20:04
 -- Version du serveur : 5.7.37
 -- Version de PHP : 8.0.15
 
@@ -40,11 +40,11 @@ CREATE TABLE `contenu` (
 --
 
 INSERT INTO `contenu` (`id_contenu`, `title`, `duration`, `type`, `content`) VALUES
-(1, 'Bonjour', 3, 'txt', 'Bonjour à tous !'),
-(2, 'Au revoir', 3, 'txt', 'À la prochaine !'),
-(3, 'EDT', 10, 'img', 'https://images.unsplash.com/photo-1617106400337-66e7d72a466e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80'),
-(4, 'Lettre', 20, 'pdf', 'Lettre du proviseur'),
-(5, 'Code', 4, 'md', 'code du turfu');
+(1, 'gestes barrière', 3, 'txt', '# Covid 19\n\nles gestes barière!\n[img](http://docketu.iutnc.univ-lorraine.fr:62340/assets/149c6afa-b1db-4ee7-af44-c42d3717073c)'),
+(2, 'Don du sang', 3, 'md', '# Don du sang\n\nmais s\'est aussi adapté à la bureautique informatique, sans que son contenu n\'en soit modifié. Il a été popularisé dans les années 1960 grâce à la vente de feuilles Letraset contenant des passages du Lorem Ipsum, et, plus récemment, par son inclusion dans des applications de mise en page de texte, comme Aldus PageMaker.\n![dons](http://docketu.iutnc.univ-lorraine.fr:62340/assets/3cc906c0-f38e-4787-b6e1-856ea1db4d7d)'),
+(3, 'EDT', 10, 'img', NULL),
+(4, 'Lettre', 20, 'pdf', NULL),
+(5, 'Café Théatre', 4, 'md', '# Thème Café Théatre cette semaine \n\nLe Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est le faux texte standard de l\'imprimerie depuis les années 1500.\n\n![cafe](http://docketu.iutnc.univ-lorraine.fr:62340/assets/a8af5b59-b697-4ee8-adc8-4311596f744f)');
 
 -- --------------------------------------------------------
 
@@ -244,7 +244,36 @@ INSERT INTO `directus_activity` (`id`, `action`, `user`, `timestamp`, `ip`, `use
 (144, 'update', '93da9995-99e1-42ca-9a19-6fb43f37ccd3', '2022-02-09 20:05:57', '172.26.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36 OPR/83.0.4254.27', 'directus_collections', 'contenu_sequence', NULL),
 (145, 'update', '93da9995-99e1-42ca-9a19-6fb43f37ccd3', '2022-02-09 20:06:06', '172.26.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36 OPR/83.0.4254.27', 'directus_collections', 'screen_sequence', NULL),
 (146, 'update', '93da9995-99e1-42ca-9a19-6fb43f37ccd3', '2022-02-10 09:35:11', '172.26.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36 OPR/83.0.4254.27', 'directus_users', '93da9995-99e1-42ca-9a19-6fb43f37ccd3', NULL),
-(147, 'update', '93da9995-99e1-42ca-9a19-6fb43f37ccd3', '2022-02-10 09:35:11', '172.26.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36 OPR/83.0.4254.27', 'directus_roles', '1b0c289b-9986-4748-b8f6-3aa3d2c22d63', NULL);
+(147, 'update', '93da9995-99e1-42ca-9a19-6fb43f37ccd3', '2022-02-10 09:35:11', '172.26.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36 OPR/83.0.4254.27', 'directus_roles', '1b0c289b-9986-4748-b8f6-3aa3d2c22d63', NULL),
+(148, 'login', '93da9995-99e1-42ca-9a19-6fb43f37ccd3', '2022-02-11 18:46:29', '172.18.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36 OPR/83.0.4254.27', 'directus_users', '93da9995-99e1-42ca-9a19-6fb43f37ccd3', NULL),
+(149, 'update', '93da9995-99e1-42ca-9a19-6fb43f37ccd3', '2022-02-11 19:42:17', '172.18.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36 OPR/83.0.4254.27', 'contenu', '2', NULL),
+(150, 'update', '93da9995-99e1-42ca-9a19-6fb43f37ccd3', '2022-02-11 19:42:33', '172.18.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36 OPR/83.0.4254.27', 'directus_fields', '16', NULL),
+(151, 'update', '93da9995-99e1-42ca-9a19-6fb43f37ccd3', '2022-02-11 19:42:33', '172.18.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36 OPR/83.0.4254.27', 'directus_fields', '17', NULL),
+(152, 'update', '93da9995-99e1-42ca-9a19-6fb43f37ccd3', '2022-02-11 19:42:33', '172.18.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36 OPR/83.0.4254.27', 'directus_fields', '32', NULL),
+(153, 'update', '93da9995-99e1-42ca-9a19-6fb43f37ccd3', '2022-02-11 19:42:33', '172.18.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36 OPR/83.0.4254.27', 'directus_fields', '18', NULL),
+(154, 'update', '93da9995-99e1-42ca-9a19-6fb43f37ccd3', '2022-02-11 19:42:33', '172.18.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36 OPR/83.0.4254.27', 'directus_fields', '21', NULL),
+(155, 'update', '93da9995-99e1-42ca-9a19-6fb43f37ccd3', '2022-02-11 19:42:33', '172.18.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36 OPR/83.0.4254.27', 'directus_fields', '23', NULL),
+(156, 'create', '93da9995-99e1-42ca-9a19-6fb43f37ccd3', '2022-02-11 21:30:47', '172.18.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36 OPR/83.0.4254.27', 'directus_fields', '35', NULL),
+(157, 'update', '93da9995-99e1-42ca-9a19-6fb43f37ccd3', '2022-02-11 21:30:54', '172.18.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36 OPR/83.0.4254.27', 'directus_fields', '16', NULL),
+(158, 'update', '93da9995-99e1-42ca-9a19-6fb43f37ccd3', '2022-02-11 21:30:54', '172.18.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36 OPR/83.0.4254.27', 'directus_fields', '17', NULL),
+(159, 'update', '93da9995-99e1-42ca-9a19-6fb43f37ccd3', '2022-02-11 21:30:54', '172.18.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36 OPR/83.0.4254.27', 'directus_fields', '35', NULL),
+(160, 'update', '93da9995-99e1-42ca-9a19-6fb43f37ccd3', '2022-02-11 21:30:54', '172.18.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36 OPR/83.0.4254.27', 'directus_fields', '18', NULL),
+(161, 'update', '93da9995-99e1-42ca-9a19-6fb43f37ccd3', '2022-02-11 21:30:54', '172.18.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36 OPR/83.0.4254.27', 'directus_fields', '21', NULL),
+(162, 'update', '93da9995-99e1-42ca-9a19-6fb43f37ccd3', '2022-02-11 21:30:54', '172.18.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36 OPR/83.0.4254.27', 'directus_fields', '23', NULL),
+(163, 'create', '93da9995-99e1-42ca-9a19-6fb43f37ccd3', '2022-02-11 21:31:58', '172.18.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36 OPR/83.0.4254.27', 'directus_files', '149c6afa-b1db-4ee7-af44-c42d3717073c', NULL),
+(164, 'update', '93da9995-99e1-42ca-9a19-6fb43f37ccd3', '2022-02-11 21:33:03', '172.18.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36 OPR/83.0.4254.27', 'contenu', '1', NULL),
+(165, 'update', '93da9995-99e1-42ca-9a19-6fb43f37ccd3', '2022-02-11 21:33:29', '172.18.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36 OPR/83.0.4254.27', 'contenu', '1', NULL),
+(166, 'create', '93da9995-99e1-42ca-9a19-6fb43f37ccd3', '2022-02-11 21:34:22', '172.18.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36 OPR/83.0.4254.27', 'directus_files', '3cc906c0-f38e-4787-b6e1-856ea1db4d7d', NULL),
+(167, 'update', '93da9995-99e1-42ca-9a19-6fb43f37ccd3', '2022-02-11 21:35:03', '172.18.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36 OPR/83.0.4254.27', 'contenu', '2', NULL),
+(168, 'update', '93da9995-99e1-42ca-9a19-6fb43f37ccd3', '2022-02-11 21:35:27', '172.18.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36 OPR/83.0.4254.27', 'contenu', '2', NULL),
+(169, 'create', '93da9995-99e1-42ca-9a19-6fb43f37ccd3', '2022-02-11 21:37:19', '172.18.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36 OPR/83.0.4254.27', 'directus_files', 'a8af5b59-b697-4ee8-adc8-4311596f744f', NULL),
+(170, 'update', '93da9995-99e1-42ca-9a19-6fb43f37ccd3', '2022-02-11 21:37:50', '172.18.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36 OPR/83.0.4254.27', 'contenu', '5', NULL),
+(171, 'update', '93da9995-99e1-42ca-9a19-6fb43f37ccd3', '2022-02-11 21:40:24', '172.18.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36 OPR/83.0.4254.27', 'sequence', '1', NULL),
+(172, 'update', '93da9995-99e1-42ca-9a19-6fb43f37ccd3', '2022-02-11 21:41:39', '172.18.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36 OPR/83.0.4254.27', 'sequence', '2', NULL),
+(173, 'update', '93da9995-99e1-42ca-9a19-6fb43f37ccd3', '2022-02-11 21:42:26', '172.18.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36 OPR/83.0.4254.27', 'sequence', '3', NULL),
+(174, 'create', '93da9995-99e1-42ca-9a19-6fb43f37ccd3', '2022-02-11 21:47:24', '172.18.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36 OPR/83.0.4254.27', 'directus_permissions', '5', NULL),
+(175, 'update', '93da9995-99e1-42ca-9a19-6fb43f37ccd3', '2022-02-14 09:54:58', '172.18.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36 OPR/83.0.4254.27', 'contenu', '1', NULL),
+(176, 'update', '93da9995-99e1-42ca-9a19-6fb43f37ccd3', '2022-02-14 09:56:53', '172.18.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36 OPR/83.0.4254.27', 'contenu', '1', NULL);
 
 -- --------------------------------------------------------
 
@@ -349,8 +378,8 @@ INSERT INTO `directus_fields` (`id`, `collection`, `field`, `special`, `interfac
 (15, 'sequence', 'date_end', NULL, 'datetime', '{\"includeSeconds\": true}', NULL, NULL, 0, 0, NULL, 'full', NULL, NULL, NULL, 0, NULL),
 (16, 'contenu', 'id_contenu', NULL, 'input', NULL, NULL, NULL, 1, 1, 1, 'full', NULL, NULL, NULL, 0, NULL),
 (17, 'contenu', 'title', NULL, 'input', NULL, NULL, NULL, 0, 0, 2, 'full', NULL, NULL, NULL, 1, NULL),
-(18, 'contenu', 'duration', NULL, 'input', '{\"min\": 0}', NULL, NULL, 0, 0, 3, 'full', NULL, NULL, NULL, 1, NULL),
-(21, 'contenu', 'type', NULL, 'select-dropdown', '{\"choices\": [{\"text\": \"image\", \"value\": \"img\"}, {\"text\": \"pdf\", \"value\": \"pdf\"}, {\"text\": \"markdown\", \"value\": \"md\"}, {\"text\": \"texte\", \"value\": \"txt\"}]}', NULL, NULL, 0, 0, 4, 'full', NULL, NULL, NULL, 1, NULL),
+(18, 'contenu', 'duration', NULL, 'input', '{\"min\": 0}', NULL, NULL, 0, 0, 4, 'full', NULL, NULL, NULL, 1, NULL),
+(21, 'contenu', 'type', NULL, 'select-dropdown', '{\"choices\": [{\"text\": \"image\", \"value\": \"img\"}, {\"text\": \"pdf\", \"value\": \"pdf\"}, {\"text\": \"markdown\", \"value\": \"md\"}, {\"text\": \"texte\", \"value\": \"txt\"}]}', NULL, NULL, 0, 0, 5, 'full', NULL, NULL, NULL, 1, NULL),
 (22, 'pool', 'gestionnaire_id_gestionnaire', 'm2o', 'select-dropdown-m2o', '{\"filter\": null, \"template\": \"{{id_gestionnaire}}\"}', NULL, NULL, 0, 0, NULL, 'full', NULL, NULL, NULL, 0, NULL),
 (23, 'contenu', 'sequence_has_contenu', 'm2m', 'list-m2m', NULL, NULL, NULL, 0, 0, 6, 'full', NULL, NULL, NULL, 0, NULL),
 (24, 'contenu_sequence', 'id', NULL, NULL, NULL, NULL, NULL, 0, 1, NULL, 'full', NULL, NULL, NULL, 0, NULL),
@@ -361,7 +390,7 @@ INSERT INTO `directus_fields` (`id`, `collection`, `field`, `special`, `interfac
 (29, 'screen_sequence', 'id', NULL, NULL, NULL, NULL, NULL, 0, 1, NULL, 'full', NULL, NULL, NULL, 0, NULL),
 (30, 'screen_sequence', 'screen_id_screen', NULL, NULL, NULL, NULL, NULL, 0, 1, NULL, 'full', NULL, NULL, NULL, 0, NULL),
 (31, 'screen_sequence', 'sequence_id_sequence', NULL, NULL, NULL, NULL, NULL, 0, 1, NULL, 'full', NULL, NULL, NULL, 0, NULL),
-(32, 'contenu', 'content', NULL, 'input', NULL, NULL, NULL, 0, 0, 5, 'full', NULL, NULL, NULL, 1, NULL),
+(35, 'contenu', 'content', NULL, 'input-rich-text-md', NULL, NULL, NULL, 0, 0, 3, 'full', NULL, NULL, NULL, 0, NULL),
 (33, 'theme', 'id_theme', NULL, 'input', NULL, NULL, NULL, 1, 1, NULL, 'full', NULL, NULL, NULL, 0, NULL),
 (34, 'theme', 'style', NULL, 'input', NULL, NULL, NULL, 0, 0, NULL, 'full', NULL, NULL, NULL, 1, NULL);
 
@@ -394,6 +423,15 @@ CREATE TABLE `directus_files` (
   `tags` text,
   `metadata` json DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `directus_files`
+--
+
+INSERT INTO `directus_files` (`id`, `storage`, `filename_disk`, `filename_download`, `title`, `type`, `folder`, `uploaded_by`, `uploaded_on`, `modified_by`, `modified_on`, `charset`, `filesize`, `width`, `height`, `duration`, `embed`, `description`, `location`, `tags`, `metadata`) VALUES
+('149c6afa-b1db-4ee7-af44-c42d3717073c', 'local', '149c6afa-b1db-4ee7-af44-c42d3717073c.jpg', 'panneau-les-4-gestes-barrieres.jpg', 'Panneau Les 4 Gestes Barrieres', 'image/jpeg', NULL, '93da9995-99e1-42ca-9a19-6fb43f37ccd3', '2022-02-11 21:31:58', NULL, '2022-02-11 21:31:59', NULL, 114568, 1000, 1000, NULL, NULL, NULL, NULL, NULL, NULL),
+('3cc906c0-f38e-4787-b6e1-856ea1db4d7d', 'local', '3cc906c0-f38e-4787-b6e1-856ea1db4d7d.jpg', 'don-sang-campagne-F.jpg', 'Don Sang Campagne F', 'image/jpeg', NULL, '93da9995-99e1-42ca-9a19-6fb43f37ccd3', '2022-02-11 21:34:22', NULL, '2022-02-11 21:34:23', NULL, 63304, 1279, 654, NULL, NULL, NULL, NULL, NULL, NULL),
+('a8af5b59-b697-4ee8-adc8-4311596f744f', 'local', 'a8af5b59-b697-4ee8-adc8-4311596f744f.jpg', '88f21377e3c927f68d7d1eaf4db7b7a0.jpg', '88f21377e3c927f68d7d1eaf4db7b7a0', 'image/jpeg', NULL, '93da9995-99e1-42ca-9a19-6fb43f37ccd3', '2022-02-11 21:37:19', NULL, '2022-02-11 21:37:19', NULL, 12994, 800, 600, NULL, NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -537,7 +575,8 @@ CREATE TABLE `directus_permissions` (
 INSERT INTO `directus_permissions` (`id`, `role`, `collection`, `action`, `permissions`, `validation`, `presets`, `fields`) VALUES
 (1, NULL, 'sequence', 'read', '{}', '{}', NULL, '*'),
 (3, NULL, 'contenu_sequence', 'read', '{}', '{}', NULL, '*'),
-(4, NULL, 'contenu', 'read', '{}', '{}', NULL, '*');
+(4, NULL, 'contenu', 'read', '{}', '{}', NULL, '*'),
+(5, NULL, 'directus_files', 'read', '{}', '{}', NULL, '*');
 
 -- --------------------------------------------------------
 
@@ -566,8 +605,8 @@ CREATE TABLE `directus_presets` (
 INSERT INTO `directus_presets` (`id`, `bookmark`, `user`, `role`, `collection`, `search`, `layout`, `layout_query`, `layout_options`, `refresh_interval`, `filter`) VALUES
 (1, NULL, '93da9995-99e1-42ca-9a19-6fb43f37ccd3', NULL, 'screen', NULL, NULL, '{\"tabular\": {\"page\": 1}}', NULL, NULL, NULL),
 (2, NULL, '93da9995-99e1-42ca-9a19-6fb43f37ccd3', NULL, 'gestionnaire', NULL, NULL, '{\"tabular\": {\"page\": 1}}', NULL, NULL, NULL),
-(3, NULL, '93da9995-99e1-42ca-9a19-6fb43f37ccd3', NULL, 'contenu', NULL, NULL, '{\"tabular\": {\"page\": 1, \"sort\": [\"title\"]}}', NULL, NULL, NULL),
-(4, NULL, '93da9995-99e1-42ca-9a19-6fb43f37ccd3', NULL, 'sequence', NULL, NULL, '{\"tabular\": {\"page\": 1}}', NULL, NULL, NULL),
+(3, NULL, '93da9995-99e1-42ca-9a19-6fb43f37ccd3', NULL, 'contenu', NULL, NULL, '{\"tabular\": {\"page\": 1, \"sort\": [\"-title\"], \"fields\": [\"id_contenu\", \"title\", \"content\", \"duration\", \"type\"]}}', NULL, NULL, NULL),
+(4, NULL, '93da9995-99e1-42ca-9a19-6fb43f37ccd3', NULL, 'sequence', NULL, NULL, '{\"tabular\": {\"page\": 1, \"fields\": [\"id_sequence\", \"title\", \"duration\", \"date_end\", \"date_start\"]}}', '{\"tabular\": {\"widths\": {\"title\": 289, \"duration\": 111, \"id_sequence\": 142}}}', NULL, NULL),
 (5, NULL, '93da9995-99e1-42ca-9a19-6fb43f37ccd3', NULL, 'pool', NULL, NULL, '{\"tabular\": {\"page\": 1}}', NULL, NULL, NULL),
 (6, NULL, '93da9995-99e1-42ca-9a19-6fb43f37ccd3', NULL, 'contenu_sequence', NULL, NULL, '{\"tabular\": {\"page\": 1}}', NULL, NULL, NULL);
 
@@ -767,7 +806,35 @@ INSERT INTO `directus_revisions` (`id`, `activity`, `collection`, `item`, `data`
 (141, 144, 'directus_collections', 'contenu_sequence', '{\"icon\": \"import_export\", \"note\": null, \"sort\": null, \"color\": null, \"group\": null, \"hidden\": true, \"collapse\": \"open\", \"singleton\": false, \"collection\": \"contenu_sequence\", \"sort_field\": null, \"translations\": null, \"archive_field\": null, \"archive_value\": null, \"accountability\": \"all\", \"unarchive_value\": null, \"display_template\": null, \"archive_app_filter\": true, \"item_duplication_fields\": null}', '{\"hidden\": true}', NULL),
 (142, 145, 'directus_collections', 'screen_sequence', '{\"icon\": \"import_export\", \"note\": null, \"sort\": null, \"color\": null, \"group\": null, \"hidden\": true, \"collapse\": \"open\", \"singleton\": false, \"collection\": \"screen_sequence\", \"sort_field\": null, \"translations\": null, \"archive_field\": null, \"archive_value\": null, \"accountability\": \"all\", \"unarchive_value\": null, \"display_template\": null, \"archive_app_filter\": true, \"item_duplication_fields\": null}', '{\"hidden\": true}', NULL),
 (143, 146, 'directus_users', '93da9995-99e1-42ca-9a19-6fb43f37ccd3', '{\"id\": \"93da9995-99e1-42ca-9a19-6fb43f37ccd3\", \"role\": \"1b0c289b-9986-4748-b8f6-3aa3d2c22d63\", \"tags\": null, \"email\": \"admin@pixview.com\", \"theme\": \"auto\", \"title\": null, \"token\": null, \"avatar\": null, \"status\": \"active\", \"language\": \"en-US\", \"location\": null, \"password\": \"**********\", \"provider\": \"default\", \"auth_data\": null, \"last_name\": \"User\", \"last_page\": \"/settings/project\", \"first_name\": \"Admin\", \"tfa_secret\": null, \"description\": null, \"last_access\": \"2022-02-10T09:26:09.000Z\", \"email_notifications\": true, \"external_identifier\": null}', '{\"role\": \"1b0c289b-9986-4748-b8f6-3aa3d2c22d63\", \"email\": \"admin@pixview.com\", \"password\": \"**********\"}', 144),
-(144, 147, 'directus_roles', '1b0c289b-9986-4748-b8f6-3aa3d2c22d63', '{\"id\": \"1b0c289b-9986-4748-b8f6-3aa3d2c22d63\", \"icon\": \"verified\", \"name\": \"Administrator\", \"users\": [\"93da9995-99e1-42ca-9a19-6fb43f37ccd3\"], \"ip_access\": null, \"app_access\": true, \"description\": \"$t:admin_description\", \"enforce_tfa\": false, \"admin_access\": true}', '{}', NULL);
+(144, 147, 'directus_roles', '1b0c289b-9986-4748-b8f6-3aa3d2c22d63', '{\"id\": \"1b0c289b-9986-4748-b8f6-3aa3d2c22d63\", \"icon\": \"verified\", \"name\": \"Administrator\", \"users\": [\"93da9995-99e1-42ca-9a19-6fb43f37ccd3\"], \"ip_access\": null, \"app_access\": true, \"description\": \"$t:admin_description\", \"enforce_tfa\": false, \"admin_access\": true}', '{}', NULL),
+(145, 149, 'contenu', '2', '{\"type\": \"txt\", \"title\": \"Message Civid-19\", \"content\": \"À la prochaine !\", \"duration\": 3, \"id_contenu\": 2, \"sequence_has_contenu\": [3, 5]}', '{\"title\": \"Message Civid-19\"}', NULL),
+(146, 150, 'directus_fields', '16', '{\"id\": 16, \"note\": null, \"sort\": 1, \"field\": \"id_contenu\", \"group\": null, \"width\": \"full\", \"hidden\": true, \"display\": null, \"options\": null, \"special\": null, \"readonly\": true, \"required\": false, \"interface\": \"input\", \"collection\": \"contenu\", \"conditions\": null, \"translations\": null, \"display_options\": null}', '{\"sort\": 1, \"field\": \"id_contenu\", \"group\": null, \"collection\": \"contenu\"}', NULL),
+(147, 151, 'directus_fields', '17', '{\"id\": 17, \"note\": null, \"sort\": 2, \"field\": \"title\", \"group\": null, \"width\": \"full\", \"hidden\": false, \"display\": null, \"options\": null, \"special\": null, \"readonly\": false, \"required\": true, \"interface\": \"input\", \"collection\": \"contenu\", \"conditions\": null, \"translations\": null, \"display_options\": null}', '{\"sort\": 2, \"field\": \"title\", \"group\": null, \"collection\": \"contenu\"}', NULL),
+(148, 152, 'directus_fields', '32', '{\"id\": 32, \"note\": null, \"sort\": 3, \"field\": \"content\", \"group\": null, \"width\": \"full\", \"hidden\": false, \"display\": null, \"options\": null, \"special\": null, \"readonly\": false, \"required\": true, \"interface\": \"input\", \"collection\": \"contenu\", \"conditions\": null, \"translations\": null, \"display_options\": null}', '{\"sort\": 3, \"field\": \"content\", \"group\": null, \"collection\": \"contenu\"}', NULL),
+(149, 153, 'directus_fields', '18', '{\"id\": 18, \"note\": null, \"sort\": 4, \"field\": \"duration\", \"group\": null, \"width\": \"full\", \"hidden\": false, \"display\": null, \"options\": {\"min\": 0}, \"special\": null, \"readonly\": false, \"required\": true, \"interface\": \"input\", \"collection\": \"contenu\", \"conditions\": null, \"translations\": null, \"display_options\": null}', '{\"sort\": 4, \"field\": \"duration\", \"group\": null, \"collection\": \"contenu\"}', NULL),
+(150, 154, 'directus_fields', '21', '{\"id\": 21, \"note\": null, \"sort\": 5, \"field\": \"type\", \"group\": null, \"width\": \"full\", \"hidden\": false, \"display\": null, \"options\": {\"choices\": [{\"text\": \"image\", \"value\": \"img\"}, {\"text\": \"pdf\", \"value\": \"pdf\"}, {\"text\": \"markdown\", \"value\": \"md\"}, {\"text\": \"texte\", \"value\": \"txt\"}]}, \"special\": null, \"readonly\": false, \"required\": true, \"interface\": \"select-dropdown\", \"collection\": \"contenu\", \"conditions\": null, \"translations\": null, \"display_options\": null}', '{\"sort\": 5, \"field\": \"type\", \"group\": null, \"collection\": \"contenu\"}', NULL),
+(151, 155, 'directus_fields', '23', '{\"id\": 23, \"note\": null, \"sort\": 6, \"field\": \"sequence_has_contenu\", \"group\": null, \"width\": \"full\", \"hidden\": false, \"display\": null, \"options\": null, \"special\": [\"m2m\"], \"readonly\": false, \"required\": false, \"interface\": \"list-m2m\", \"collection\": \"contenu\", \"conditions\": null, \"translations\": null, \"display_options\": null}', '{\"sort\": 6, \"field\": \"sequence_has_contenu\", \"group\": null, \"collection\": \"contenu\"}', NULL),
+(152, 156, 'directus_fields', '35', '{\"field\": \"content\", \"special\": null, \"interface\": \"input-rich-text-md\", \"collection\": \"contenu\"}', '{\"field\": \"content\", \"special\": null, \"interface\": \"input-rich-text-md\", \"collection\": \"contenu\"}', NULL),
+(153, 157, 'directus_fields', '16', '{\"id\": 16, \"note\": null, \"sort\": 1, \"field\": \"id_contenu\", \"group\": null, \"width\": \"full\", \"hidden\": true, \"display\": null, \"options\": null, \"special\": null, \"readonly\": true, \"required\": false, \"interface\": \"input\", \"collection\": \"contenu\", \"conditions\": null, \"translations\": null, \"display_options\": null}', '{\"sort\": 1, \"field\": \"id_contenu\", \"group\": null, \"collection\": \"contenu\"}', NULL),
+(154, 158, 'directus_fields', '17', '{\"id\": 17, \"note\": null, \"sort\": 2, \"field\": \"title\", \"group\": null, \"width\": \"full\", \"hidden\": false, \"display\": null, \"options\": null, \"special\": null, \"readonly\": false, \"required\": true, \"interface\": \"input\", \"collection\": \"contenu\", \"conditions\": null, \"translations\": null, \"display_options\": null}', '{\"sort\": 2, \"field\": \"title\", \"group\": null, \"collection\": \"contenu\"}', NULL),
+(155, 159, 'directus_fields', '35', '{\"id\": 35, \"note\": null, \"sort\": 3, \"field\": \"content\", \"group\": null, \"width\": \"full\", \"hidden\": false, \"display\": null, \"options\": null, \"special\": null, \"readonly\": false, \"required\": false, \"interface\": \"input-rich-text-md\", \"collection\": \"contenu\", \"conditions\": null, \"translations\": null, \"display_options\": null}', '{\"sort\": 3, \"field\": \"content\", \"group\": null, \"collection\": \"contenu\"}', NULL),
+(156, 160, 'directus_fields', '18', '{\"id\": 18, \"note\": null, \"sort\": 4, \"field\": \"duration\", \"group\": null, \"width\": \"full\", \"hidden\": false, \"display\": null, \"options\": {\"min\": 0}, \"special\": null, \"readonly\": false, \"required\": true, \"interface\": \"input\", \"collection\": \"contenu\", \"conditions\": null, \"translations\": null, \"display_options\": null}', '{\"sort\": 4, \"field\": \"duration\", \"group\": null, \"collection\": \"contenu\"}', NULL),
+(157, 161, 'directus_fields', '21', '{\"id\": 21, \"note\": null, \"sort\": 5, \"field\": \"type\", \"group\": null, \"width\": \"full\", \"hidden\": false, \"display\": null, \"options\": {\"choices\": [{\"text\": \"image\", \"value\": \"img\"}, {\"text\": \"pdf\", \"value\": \"pdf\"}, {\"text\": \"markdown\", \"value\": \"md\"}, {\"text\": \"texte\", \"value\": \"txt\"}]}, \"special\": null, \"readonly\": false, \"required\": true, \"interface\": \"select-dropdown\", \"collection\": \"contenu\", \"conditions\": null, \"translations\": null, \"display_options\": null}', '{\"sort\": 5, \"field\": \"type\", \"group\": null, \"collection\": \"contenu\"}', NULL),
+(158, 162, 'directus_fields', '23', '{\"id\": 23, \"note\": null, \"sort\": 6, \"field\": \"sequence_has_contenu\", \"group\": null, \"width\": \"full\", \"hidden\": false, \"display\": null, \"options\": null, \"special\": [\"m2m\"], \"readonly\": false, \"required\": false, \"interface\": \"list-m2m\", \"collection\": \"contenu\", \"conditions\": null, \"translations\": null, \"display_options\": null}', '{\"sort\": 6, \"field\": \"sequence_has_contenu\", \"group\": null, \"collection\": \"contenu\"}', NULL),
+(159, 163, 'directus_files', '149c6afa-b1db-4ee7-af44-c42d3717073c', '{\"type\": \"image/jpeg\", \"title\": \"Panneau Les 4 Gestes Barrieres\", \"storage\": \"local\", \"filename_download\": \"panneau-les-4-gestes-barrieres.jpg\"}', '{\"type\": \"image/jpeg\", \"title\": \"Panneau Les 4 Gestes Barrieres\", \"storage\": \"local\", \"filename_download\": \"panneau-les-4-gestes-barrieres.jpg\"}', NULL),
+(160, 164, 'contenu', '1', '{\"type\": \"txt\", \"title\": \"Bonjour\", \"content\": \"# Covid 19\\n\\nles gestes bariere!\\n[img](http://docketu.iutnc.univ-lorraine.fr:62340/assets/149c6afa-b1db-4ee7-af44-c42d3717073c)\", \"duration\": 3, \"id_contenu\": 1, \"sequence_has_contenu\": [4, 6]}', '{\"content\": \"# Covid 19\\n\\nles gestes bariere!\\n[img](http://docketu.iutnc.univ-lorraine.fr:62340/assets/149c6afa-b1db-4ee7-af44-c42d3717073c)\"}', NULL),
+(161, 165, 'contenu', '1', '{\"type\": \"txt\", \"title\": \"gestes barrière\", \"content\": \"# Covid 19\\n\\nles gestes barière!\\n[img](http://docketu.iutnc.univ-lorraine.fr:62340/assets/149c6afa-b1db-4ee7-af44-c42d3717073c)\", \"duration\": 3, \"id_contenu\": 1, \"sequence_has_contenu\": [4, 6]}', '{\"title\": \"gestes barrière\", \"content\": \"# Covid 19\\n\\nles gestes barière!\\n[img](http://docketu.iutnc.univ-lorraine.fr:62340/assets/149c6afa-b1db-4ee7-af44-c42d3717073c)\"}', NULL),
+(162, 166, 'directus_files', '3cc906c0-f38e-4787-b6e1-856ea1db4d7d', '{\"type\": \"image/jpeg\", \"title\": \"Don Sang Campagne F\", \"storage\": \"local\", \"filename_download\": \"don-sang-campagne-F.jpg\"}', '{\"type\": \"image/jpeg\", \"title\": \"Don Sang Campagne F\", \"storage\": \"local\", \"filename_download\": \"don-sang-campagne-F.jpg\"}', NULL),
+(163, 167, 'contenu', '2', '{\"type\": \"md\", \"title\": \"Message Civid-19\", \"content\": \"# Don du sang\\n\\nmais s\'est aussi adapté à la bureautique informatique, sans que son contenu n\'en soit modifié. Il a été popularisé dans les années 1960 grâce à la vente de feuilles Letraset contenant des passages du Lorem Ipsum, et, plus récemment, par son inclusion dans des applications de mise en page de texte, comme Aldus PageMaker.\\n![dons](http://docketu.iutnc.univ-lorraine.fr:62340/assets/3cc906c0-f38e-4787-b6e1-856ea1db4d7d)\", \"duration\": 3, \"id_contenu\": 2, \"sequence_has_contenu\": [3, 5]}', '{\"type\": \"md\", \"content\": \"# Don du sang\\n\\nmais s\'est aussi adapté à la bureautique informatique, sans que son contenu n\'en soit modifié. Il a été popularisé dans les années 1960 grâce à la vente de feuilles Letraset contenant des passages du Lorem Ipsum, et, plus récemment, par son inclusion dans des applications de mise en page de texte, comme Aldus PageMaker.\\n![dons](http://docketu.iutnc.univ-lorraine.fr:62340/assets/3cc906c0-f38e-4787-b6e1-856ea1db4d7d)\"}', NULL),
+(164, 168, 'contenu', '2', '{\"type\": \"md\", \"title\": \"Don du sang\", \"content\": \"# Don du sang\\n\\nmais s\'est aussi adapté à la bureautique informatique, sans que son contenu n\'en soit modifié. Il a été popularisé dans les années 1960 grâce à la vente de feuilles Letraset contenant des passages du Lorem Ipsum, et, plus récemment, par son inclusion dans des applications de mise en page de texte, comme Aldus PageMaker.\\n![dons](http://docketu.iutnc.univ-lorraine.fr:62340/assets/3cc906c0-f38e-4787-b6e1-856ea1db4d7d)\", \"duration\": 3, \"id_contenu\": 2, \"sequence_has_contenu\": [3, 5]}', '{\"title\": \"Don du sang\"}', NULL),
+(165, 169, 'directus_files', 'a8af5b59-b697-4ee8-adc8-4311596f744f', '{\"type\": \"image/jpeg\", \"title\": \"88f21377e3c927f68d7d1eaf4db7b7a0\", \"storage\": \"local\", \"filename_download\": \"88f21377e3c927f68d7d1eaf4db7b7a0.jpg\"}', '{\"type\": \"image/jpeg\", \"title\": \"88f21377e3c927f68d7d1eaf4db7b7a0\", \"storage\": \"local\", \"filename_download\": \"88f21377e3c927f68d7d1eaf4db7b7a0.jpg\"}', NULL),
+(166, 170, 'contenu', '5', '{\"type\": \"md\", \"title\": \"Café Théatre\", \"content\": \"# Thème Café Théatre cette semaine \\n\\nLe Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est le faux texte standard de l\'imprimerie depuis les années 1500.\\n\\n![cafe](http://docketu.iutnc.univ-lorraine.fr:62340/assets/a8af5b59-b697-4ee8-adc8-4311596f744f)\", \"duration\": 4, \"id_contenu\": 5, \"sequence_has_contenu\": [7]}', '{\"title\": \"Café Théatre\", \"content\": \"# Thème Café Théatre cette semaine \\n\\nLe Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est le faux texte standard de l\'imprimerie depuis les années 1500.\\n\\n![cafe](http://docketu.iutnc.univ-lorraine.fr:62340/assets/a8af5b59-b697-4ee8-adc8-4311596f744f)\"}', NULL),
+(167, 171, 'sequence', '1', '{\"title\": \"campagne prévention Covid 19\", \"date_end\": \"2022-02-17T12:00:00\", \"duration\": 40, \"date_start\": \"2022-02-13T12:00:00\", \"id_sequence\": 1}', '{\"title\": \"campagne prévention Covid 19\", \"date_end\": \"2022-02-17T12:00:00\", \"date_start\": \"2022-02-13T12:00:00\"}', NULL),
+(168, 172, 'sequence', '2', '{\"title\": \"Activité culturel mois de février\", \"date_end\": \"2022-02-28T12:00:00\", \"duration\": 6, \"date_start\": \"2022-02-01T12:00:00\", \"id_sequence\": 2}', '{\"title\": \"Activité culturel mois de février\", \"date_end\": \"2022-02-28T12:00:00\", \"date_start\": \"2022-02-01T12:00:00\"}', NULL),
+(169, 173, 'sequence', '3', '{\"title\": \"campagne don du sang\", \"date_end\": \"2022-02-24T12:00:00\", \"duration\": 30, \"date_start\": \"2022-02-20T12:00:00\", \"id_sequence\": 3}', '{\"title\": \"campagne don du sang\", \"date_end\": \"2022-02-24T12:00:00\", \"date_start\": \"2022-02-20T12:00:00\"}', NULL),
+(170, 174, 'directus_permissions', '5', '{\"role\": null, \"action\": \"read\", \"fields\": [\"*\"], \"collection\": \"directus_files\", \"validation\": {}, \"permissions\": {}}', '{\"role\": null, \"action\": \"read\", \"fields\": [\"*\"], \"collection\": \"directus_files\", \"validation\": {}, \"permissions\": {}}', NULL),
+(171, 175, 'contenu', '1', '{\"type\": \"txt\", \"title\": \"gestes barrière\", \"content\": \"# Covid 19\\n\\nles gestes barière!\\n![img](http://docketu.iutnc.univ-lorraine.fr:62340/assets/149c6afa-b1db-4ee7-af44-c42d3717073c)\", \"duration\": 3, \"id_contenu\": 1, \"sequence_has_contenu\": [4, 6]}', '{\"content\": \"# Covid 19\\n\\nles gestes barière!\\n![img](http://docketu.iutnc.univ-lorraine.fr:62340/assets/149c6afa-b1db-4ee7-af44-c42d3717073c)\"}', NULL),
+(172, 176, 'contenu', '1', '{\"type\": \"txt\", \"title\": \"gestes barrière\", \"content\": \"# Covid 19\\n\\nles gestes barière!\\n[img](http://docketu.iutnc.univ-lorraine.fr:62340/assets/149c6afa-b1db-4ee7-af44-c42d3717073c)\", \"duration\": 3, \"id_contenu\": 1, \"sequence_has_contenu\": [4, 6]}', '{\"content\": \"# Covid 19\\n\\nles gestes barière!\\n[img](http://docketu.iutnc.univ-lorraine.fr:62340/assets/149c6afa-b1db-4ee7-af44-c42d3717073c)\"}', NULL);
 
 -- --------------------------------------------------------
 
@@ -814,7 +881,8 @@ CREATE TABLE `directus_sessions` (
 
 INSERT INTO `directus_sessions` (`token`, `user`, `expires`, `ip`, `user_agent`, `share`) VALUES
 ('kRWIwEicQVUpB0fSCEZi-06RAoqFOQ0wmnB-A7sgZbHrWVobf5Tx8Vvq3YTosQhJ', '93da9995-99e1-42ca-9a19-6fb43f37ccd3', '2022-02-16 14:50:54', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36', NULL),
-('-SkWjoovmKTMxQKfcOHdigplnwmNRqXItpZPaK1I-Dq-94WwU7ewDDDBv_PyP_fj', '93da9995-99e1-42ca-9a19-6fb43f37ccd3', '2022-02-17 09:26:09', '172.26.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36 OPR/83.0.4254.27', NULL);
+('-SkWjoovmKTMxQKfcOHdigplnwmNRqXItpZPaK1I-Dq-94WwU7ewDDDBv_PyP_fj', '93da9995-99e1-42ca-9a19-6fb43f37ccd3', '2022-02-17 09:26:09', '172.26.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36 OPR/83.0.4254.27', NULL),
+('zp_DLZLYuVi8Gn-_LsF3kCFyPDNfhquWwC9fVvYsLavO1V_34Tx40fC6tblg9Q5d', '93da9995-99e1-42ca-9a19-6fb43f37ccd3', '2022-02-21 09:52:00', '172.18.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36 OPR/83.0.4254.27', NULL);
 
 -- --------------------------------------------------------
 
@@ -907,7 +975,7 @@ CREATE TABLE `directus_users` (
 --
 
 INSERT INTO `directus_users` (`id`, `first_name`, `last_name`, `email`, `password`, `location`, `title`, `description`, `tags`, `avatar`, `language`, `theme`, `tfa_secret`, `status`, `role`, `token`, `last_access`, `last_page`, `provider`, `external_identifier`, `auth_data`, `email_notifications`) VALUES
-('93da9995-99e1-42ca-9a19-6fb43f37ccd3', 'Admin', 'User', 'admin@pixview.com', '$argon2i$v=19$m=4096,t=3,p=1$X8ER224vmsRlNjsMTgVyJw$6i2kDt+FTPMH9CCgZoW5y7krYYj/FASS8tMsPMxVZz8', NULL, NULL, NULL, NULL, NULL, 'en-US', 'auto', NULL, 'active', '1b0c289b-9986-4748-b8f6-3aa3d2c22d63', NULL, '2022-02-10 09:26:09', '/settings/project', 'default', NULL, NULL, 1);
+('93da9995-99e1-42ca-9a19-6fb43f37ccd3', 'Admin', 'User', 'admin@pixview.com', '$argon2i$v=19$m=4096,t=3,p=1$X8ER224vmsRlNjsMTgVyJw$6i2kDt+FTPMH9CCgZoW5y7krYYj/FASS8tMsPMxVZz8', NULL, NULL, NULL, NULL, NULL, 'en-US', 'auto', NULL, 'active', '1b0c289b-9986-4748-b8f6-3aa3d2c22d63', NULL, '2022-02-14 09:52:00', '/content/contenu', 'default', NULL, NULL, 1);
 
 -- --------------------------------------------------------
 
@@ -1032,9 +1100,9 @@ CREATE TABLE `sequence` (
 --
 
 INSERT INTO `sequence` (`id_sequence`, `title`, `duration`, `date_start`, `date_end`) VALUES
-(1, 'Base', 40, NULL, NULL),
-(2, 'Bonjour & Au revoir', 6, NULL, NULL),
-(3, 'Administratif', 30, NULL, NULL);
+(1, 'campagne prévention Covid 19', 40, '2022-02-13 12:00:00', '2022-02-17 12:00:00'),
+(2, 'Activité culturel mois de février', 6, '2022-02-01 12:00:00', '2022-02-28 12:00:00'),
+(3, 'campagne don du sang', 30, '2022-02-20 12:00:00', '2022-02-24 12:00:00');
 
 -- --------------------------------------------------------
 
@@ -1274,13 +1342,13 @@ ALTER TABLE `contenu_sequence`
 -- AUTO_INCREMENT pour la table `directus_activity`
 --
 ALTER TABLE `directus_activity`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=148;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=177;
 
 --
 -- AUTO_INCREMENT pour la table `directus_fields`
 --
 ALTER TABLE `directus_fields`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- AUTO_INCREMENT pour la table `directus_notifications`
@@ -1292,7 +1360,7 @@ ALTER TABLE `directus_notifications`
 -- AUTO_INCREMENT pour la table `directus_permissions`
 --
 ALTER TABLE `directus_permissions`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT pour la table `directus_presets`
@@ -1310,7 +1378,7 @@ ALTER TABLE `directus_relations`
 -- AUTO_INCREMENT pour la table `directus_revisions`
 --
 ALTER TABLE `directus_revisions`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=145;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=173;
 
 --
 -- AUTO_INCREMENT pour la table `directus_settings`

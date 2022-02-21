@@ -63,7 +63,7 @@ services:
       - ./app_viewer:/usr/src/app
       - ./app_viewer/node_modules:/usr/src/outside/node_modules
     working_dir: /usr/src/app
-    command: bash -c 'npm i && npm run start'
+    command: bash -c 'npm i && npm run dev'
     networks:
       - directus
 
