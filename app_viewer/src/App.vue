@@ -186,7 +186,8 @@ export default {
 
     displayPDF(){
       //document.getElementById('screen').innerHTML = "<iframe src='"+ this.contenu +"' height='100%' width='100%'></iframe>";
-      document.getElementById('screen').innerHTML = "<div id='image'><img id='img' src='"+ this.contenu +"' alt='image '/></div>";
+      //document.getElementById('screen').innerHTML = "<div id='image'><img id='img' src='"+ this.contenu +"' alt='image '/></div>";
+      document.getElementById('screen').innerHTML = "<embed src='"+ this.contenu +"' width='800px' height='2100px'/>";
     },
 
     displayVideo(){
@@ -207,11 +208,6 @@ export default {
 
 
 <style>
-
-html{
-  max-width: 100vw;
-  max-height: 100vh;
-}
 
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
@@ -253,5 +249,29 @@ a {
 img{
   width: 100%;
   height: auto;
+}
+
+#screen:fullscreen {
+  background-color: white;
+  width: 100vw;
+  height: 100vh;
+}
+
+#screen:-webkit-full-screen {
+  background-color: white;
+  width: 100vw;
+  height: 100vh;
+}
+
+#screen:-moz-full-screen {
+  background-color: white;
+  width: 100vw;
+  height: 100vh;
+}
+
+#screen:-ms-fullscreen {
+  background-color: white;
+  width: 100vw;
+  height: 100vh;
 }
 </style>
