@@ -1,7 +1,7 @@
 <template>
   <div id="app">
 
-    <connection v-if="verif===false"></connection>
+    <connection v-if="verif===false && start===false"></connection>
 
     <section v-if="errored">Pas de contenu wsh</section>
     <section v-else>
@@ -29,34 +29,61 @@ export default {
   data () {
     return {
       verif: false,
+      start: false,
       token: null,
       url: null,
       contenu: null,
 
       errored: false,
       loading: false,
+
+      /** IdScreen **/
+      idScreen: null,
+      /** Sequences **/
+      idSequences: [],
+      iS: -1, // Increment sequences
+      /** Contenus **/
+      idContenus: [],
+      iC: -1,
+
+
+      /** URL **/
+      urlSequencesByScreenId: '/items/screen_sequence?filter[screen_id_screen][_eq]=',
+      urlIdContenusBySequenceId: '/items/contenu_sequence?fields=contenu_id_contenu&filter[sequence_id_sequence][_eq]=',
+      urlContentById: '/items/contenu?filter[id_contenu][_eq]=',
     }
   },
 
   methods: {
     interval(){
       setInterval(() => {
-        if(this.verif){
-          this.getContenu();
+        if(this.verif && !this.start){
+          this.start = true;
+          this.launch();
+
           document.getElementById('screen').requestFullscreen();
         }
-      }, 3000);
+      }, 500);
+
     },
 
-    getContenu(){
+    launch(){
+      // Récupère les id de séquences
       axios
-        .get(this.url)
+        .get(this.url + this.urlSequencesByScreenId + this.idScreen)
         .then(response => {
-          console.log(response.data);
-          this.contenu = response.data.contenu;
+          let data = response.data.data;
+          let sqs = [];
 
-          if(response.data.type === 'md') this.markdownToHtml();
-          else if(response.data.type === 'image') this.displayImage();
+          data.forEach((dts) => {
+            sqs.push(dts.sequence_id_sequence);
+          });
+          this.idSequences = sqs;
+          //console.log(this.idSequences);
+
+          // Démare l'app en récupèrant les contenus de la séquences courante
+          this.nextSequence(0.001);
+
         })
         .catch(error => {
           console.log(error);
@@ -65,14 +92,105 @@ export default {
         .finally( () => { this.loading = false; } );
     },
 
+    getContenu(){
+
+      axios
+        .get(this.url + this.urlContentById + this.idContenus[this.iC])
+        .then(response => {
+          console.log(response.data.data[0]);
+          if(response.data.data.length > 0){
+            let data = response.data.data[0];
+            this.contenu = data.content;
+
+            if(data.type === 'md' || data.type === 'txt') this.markdownToHtml();
+            else if(data.type === 'image' || data.type === 'img') this.displayImage();
+            else if(data.type === 'pdf' || data.type === 'PDF') this.displayPDF();
+
+            this.nextContenu(data.duration);
+          } else {
+            this.nextContenu(0.001);
+          }
+
+        })
+        .catch(error => {
+          console.log(error);
+          this.errored = true;
+        })
+        .finally( () => { this.loading = false; } );
+    },
+
+    nextContenu(stand){
+      console.log('nextContenu   ' + this.idContenus);
+      setTimeout(() => {
+        if((this.iC+1) < this.idContenus.length){
+          this.iC++;
+
+          this.getContenu();
+        } else {
+
+          this.nextSequence();
+
+        }
+      }, stand*1000);
+
+    },
+
+    nextSequence(stand){
+      console.log('nextSequence   ' + this.idSequences);
+      if((this.iS+1) < this.idSequences.length){
+        this.iS++;
+      } else {
+        this.iS = 0;
+      }
+
+
+      setTimeout(() => {
+        axios
+          .get(this.url + this.urlIdContenusBySequenceId + this.idSequences[this.iS])
+          .then(response => {
+            let data = response.data.data;
+            let cts = [];
+
+            data.forEach((dts) => {
+              cts.push(dts.contenu_id_contenu);
+            });
+            this.idContenus = cts;
+            console.log(this.idContenus);
+
+            // Démare l'app en récupèrant les contenus de la séquences courante
+            this.iC = -1;
+            this.nextContenu(0.001);
+
+          })
+          .catch(error => {
+            console.log(error);
+            this.errored = true;
+          })
+          .finally( () => { this.loading = false; } );
+
+
+      }, stand*1000);
+
+
+    },
+
     displayImage(){
-      document.getElementById('screen').innerHTML = "<div id='image'><img id='img' src='https://www.freepsdbazaar.com/wp-content/uploads/2020/06/sky-replace/sky-sunset/sunset-049-freepsdbazaar.jpg' alt='image '/></div>";
+      document.getElementById('screen').innerHTML = "<div id='image'><img id='img' src='"+ this.contenu +"' alt='image '/></div>";
       //document.getElementById('img').requestFullscreen();
     },
 
     markdownToHtml(){
       let converter = new showdown.Converter();
       document.getElementById('screen').innerHTML = converter.makeHtml(this.contenu);
+    },
+
+    displayPDF(){
+      //document.getElementById('screen').innerHTML = "<iframe src='"+ this.contenu +"' height='100%' width='100%'></iframe>";
+      document.getElementById('screen').innerHTML = "<div id='image'><img id='img' src='"+ this.contenu +"' alt='image '/></div>";
+    },
+
+    displayVideo(){
+      // A compléter
     },
 
   },
@@ -89,6 +207,12 @@ export default {
 
 
 <style>
+
+html{
+  max-width: 100vw;
+  max-height: 100vh;
+}
+
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -96,6 +220,8 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+
+
 }
 
 h1, h2 {
@@ -123,5 +249,9 @@ a {
 #img{
   width: 100%;
   height: 100%;
+}
+img{
+  width: 100%;
+  height: auto;
 }
 </style>
