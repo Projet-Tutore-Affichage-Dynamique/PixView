@@ -10,8 +10,6 @@
       <section id="screen" v-else></section>
     </section>
 
-    <style id="style_sequence"></style>
-
   </div>
 </template>
 
@@ -56,8 +54,8 @@ export default {
       urlIdContenusBySequenceId: '/items/contenu_sequence?fields=contenu_id_contenu&filter[sequence_id_sequence][_eq]=',
       urlContentById: '/items/contenu?filter[id_contenu][_eq]=',
 
-      urlIdStyleBySequence: '',
-      urlStyleById: ''
+      urlIdStyleBySequence: '/items/sequence?filter[id_sequence][_eq]=',
+      urlStyleById: '/items/theme?filter[id_theme][_eq]='
     }
   },
 
@@ -86,6 +84,12 @@ export default {
             sqs.push(dts.sequence_id_sequence);
           });
           this.idSequences = sqs;
+
+          // Integrate in HTML, balise 'style'
+          let style = document.createElement('style');
+          style.id = 'style_sequence';
+          document.getElementById('app').appendChild(style);
+
           //console.log(this.idSequences);
 
           // Démare l'app en récupèrant les contenus de la séquences courante
@@ -151,6 +155,7 @@ export default {
         this.iS = 0;
       }
 
+      this.integrateStyle();
 
       setTimeout(() => {
         axios
@@ -205,40 +210,40 @@ export default {
       // A compléter
     },
 
+    
 
-    getAllStyles(){
-      if(this.idSequences[0] !== null){
+    integrateStyle(){
+      document.getElementById('style_sequence').innerText = '';
 
-        this.idSequences.forEach((seq) => {
+      if(this.idSequences[this.iS] !== null){
 
-          axios
-            .get(this.url + this.urlIdContenusBySequenceId + this.idSequences[this.iS])
-            .then(response => {
-              let data = response.data.data;
-              let cts = [];
+        axios
+          .get(this.url + this.urlIdStyleBySequence + this.idSequences[this.iS])
+          .then(response => {
+            let idStyle = response.data.data[0].theme_id_theme;
 
-              data.forEach((dts) => {
-                cts.push(dts.contenu_id_contenu);
-              });
-              this.idContenus = cts;
-              console.log(this.idContenus);
+            axios
+              .get(this.url + this.urlStyleById + idStyle)
+              .then(response => {
+                let data = response.data.data[0];
 
-              // Démare l'app en récupèrant les contenus de la séquences courante
-              this.iC = -1;
-              this.nextContenu(0.001);
+                let style = data.style;
 
-            })
-            .catch(error => {
-              console.log(error);
-              this.errored = true;
-            })
-            .finally( () => { this.loading = false; } );
-        });
+                document.getElementById('style_sequence').innerText = style;
+
+              })
+              .catch(error => {
+                throw error;
+              })
+
+          })
+          .catch(error => {
+            console.log(error);
+            this.errored = true;
+          })
+          .finally( () => { this.loading = false; } );
 
       }
-    },
-
-    integrateStyle(url){
 
     },
 
