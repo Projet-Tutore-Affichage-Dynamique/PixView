@@ -44,6 +44,8 @@ export default {
       /** Sequences **/
       idSequences: [],
       iS: -1, // Increment sequences
+      /** Styles **/
+      idStyles: [],
       /** Contenus **/
       idContenus: [],
       iC: -1,
