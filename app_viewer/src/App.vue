@@ -207,7 +207,35 @@ export default {
 
 
     getAllStyles(){
+      if(this.idSequences[0] !== null){
 
+        this.idSequences.forEach((seq) => {
+
+          axios
+            .get(this.url + this.urlIdContenusBySequenceId + this.idSequences[this.iS])
+            .then(response => {
+              let data = response.data.data;
+              let cts = [];
+
+              data.forEach((dts) => {
+                cts.push(dts.contenu_id_contenu);
+              });
+              this.idContenus = cts;
+              console.log(this.idContenus);
+
+              // Démare l'app en récupèrant les contenus de la séquences courante
+              this.iC = -1;
+              this.nextContenu(0.001);
+
+            })
+            .catch(error => {
+              console.log(error);
+              this.errored = true;
+            })
+            .finally( () => { this.loading = false; } );
+        });
+
+      }
     },
 
     integrateStyle(url){
