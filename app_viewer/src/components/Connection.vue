@@ -40,16 +40,22 @@ export default {
 
   methods: {
     verifyConnection(){
+
       if(this.url !== "" && this.token !== ""){
+
         axios
-          .get(this.url)
+          .get(this.url + '/items/screen?filter[ip_address][_eq]=' + this.token)
           .then(response => {
-            let data = response.data.verif;
+            let data = response.data.data[0];
+            console.log(data);
             if(data){
-              console.log('coucou');
-              this.$parent.verif = true;
+
+
               this.$parent.token = this.token;
-              this.$parent.url = this.url + "/contenu";
+              this.$parent.url = this.url;
+              this.$parent.idScreen = data.id_screen;
+              this.$parent.verif = true;
+
             }
           })
           .catch(error => {

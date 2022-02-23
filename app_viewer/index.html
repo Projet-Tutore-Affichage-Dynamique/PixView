@@ -1,49 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
-<<<<<<< HEAD
+<html lang="fr">
   <head>
-    <meta charset="utf-8">
-    <title>myapp</title>
-  </head>
-  <body>
-    <div id="app"></div>
-    <script src="/dist/build.js"></script>
-    <script type="text/javascript">
-      window.onload = maxWindow;
-
-      function maxWindow() {
-        window.moveTo(0, 0);
-
-        if (document.all) {
-          top.window.resizeTo(screen.availWidth, screen.availHeight);
-        }
-
-        else if (document.layers || document.getElementById) {
-          if (top.window.outerHeight < screen.availHeight || top.window.outerWidth < screen.availWidth) {
-            top.window.outerHeight = screen.availHeight;
-            top.window.outerWidth = screen.availWidth;
-          }
-        }
-      }
-    </script>
-  </body>
-</html>
-=======
-<head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-</head>
-<body>
-    <h1>TEST</h1>
-    <div class="app">
+    <!-- <meta http-equiv="Content-Security-Policy" content="frame-ancestors 'self' http://docketu.iutnc.univ-lorraine.fr:62340" /> -->
+  </head>
+  <body>
+    <div id="app"></div>
+    <script src="/dist/build.js"></script>
 
-    </div>
     <script src="https://unpkg.com/showdown/dist/showdown.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <!-- <script src="https://cdnjs.com/libraries/pdf.js"></script> -->
     <!-- <script src="./app.js"></script> -->
     <script src="./test.js"></script>
+
 </body>
 </html>
->>>>>>> b3691e32cc68877974f860f02dd4c71c3c62708d
+
