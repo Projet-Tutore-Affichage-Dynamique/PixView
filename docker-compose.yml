@@ -54,18 +54,18 @@ services:
   ################
   ## APP VIEWER ##
   ################
-  app.viewer:
-    container_name: app.viewer
-    image: node
-    ports:
-      - "19180:8080"
-    volumes:
-      - ./app_viewer:/usr/src/app
-      - ./app_viewer/node_modules:/usr/src/outside/node_modules
-    working_dir: /usr/src/app
-    command: bash -c 'npm i && npm run dev'
-    networks:
-      - directus
+  #app.viewer:
+  #  container_name: app.viewer
+  #  image: node
+  #  ports:
+  #    - "19180:8080"
+  #  volumes:
+  #    - ./app_viewer:/usr/src/app
+  #    - ./app_viewer/node_modules:/usr/src/outside/node_modules
+  #  working_dir: /usr/src/app
+  #  command: bash -c 'npm i && npm run dev'
+  #  networks:
+  #    - directus
 
 networks:
   directus:

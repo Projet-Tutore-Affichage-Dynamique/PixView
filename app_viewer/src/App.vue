@@ -210,7 +210,7 @@ export default {
       // A compléter
     },
 
-    
+
 
     integrateStyle(){
       document.getElementById('style_sequence').innerText = '';
