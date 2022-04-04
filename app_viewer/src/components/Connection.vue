@@ -82,13 +82,14 @@ body{
   justify-content: center;
 }
 .errored {
-  padding: 20px;
-  background-color: rgba(228, 116, 116, 0.526);
-  width: fit-content;
-  color: white;
-  font-weight: bold;
-  margin: auto;
-  border-radius: 15px;
+  position: relative;
+  padding: 1rem 1rem;
+  margin-bottom: 1rem;
+  border: 1px solid transparent;
+  border-radius: 0.25rem;
+  color: #842029;
+  background-color: #f8d7da;
+  border-color: #f5c2c7;
 }
 h1{
   font-size: 4rem;
