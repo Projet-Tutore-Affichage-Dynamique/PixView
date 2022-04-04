@@ -10,14 +10,15 @@
       <input v-model="token" id="token_input">
 
       <button v-on:click="verifyConnection">Connection</button>
-
-      <section v-if="errored">Erreur de connection</section>
-      <section v-else>
-        <spinner v-if="loading">Loading</spinner>
-
-        <section v-else></section>
-      </section>
     </div>
+    <aside class="errored" v-if="errored">
+      {{errored}}
+    </aside>
+    <aside v-else>
+      <spinner v-if="loading">Loading</spinner>
+
+      <aside v-else></aside>
+    </aside>
   </div>
 </template>
 
@@ -32,7 +33,7 @@ export default {
   data () {
     return {
       loading: false,
-      errored: false,
+      errored: null,
       url: "",
       token: "",
     }
@@ -50,7 +51,6 @@ export default {
             console.log(data);
             if(data){
 
-
               this.$parent.token = this.token;
               this.$parent.url = this.url;
               this.$parent.idScreen = data.id_screen;
@@ -60,7 +60,7 @@ export default {
           })
           .catch(error => {
             console.log(error);
-            this.errored = true;
+            this.errored = error;
           })
           .finally( () => this.loading = false );
       }
@@ -71,5 +71,16 @@ export default {
 </script>
 
 <style scoped>
-
+.errored {
+  padding: 20px;
+  background-color: rgba(228, 116, 116, 0.526);
+  width: fit-content;
+  color: white;
+  font-weight: bold;
+  margin: auto;
+  border-radius: 15px;
+}
+#form {
+  margin: 20px 0px;
+}
 </style>
