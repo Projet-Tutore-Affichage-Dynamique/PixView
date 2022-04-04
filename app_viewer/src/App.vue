@@ -47,12 +47,19 @@ export default {
       /** Contenus **/
       idContenus: [],
       iC: -1,
+      /** Warning **/
+      warning: false,
+      id_warning: null,
 
 
       /** URL **/
       urlSequencesByScreenId: '/items/screen_sequence?filter[screen_id_screen][_eq]=',
+      urlSequencesByTime: 'http://docketu.iutnc.univ-lorraine.fr:62340/items/sequence?filter[date_start][_between]=',
       urlIdContenusBySequenceId: '/items/contenu_sequence?fields=contenu_id_contenu&filter[sequence_id_sequence][_eq]=',
       urlContentById: '/items/contenu?filter[id_contenu][_eq]=',
+
+      // Warning
+      urlWarning: 'http://docketu.iutnc.univ-lorraine.fr:62340/items/',
 
       urlIdStyleBySequence: '/items/sequence?filter[id_sequence][_eq]=',
       urlStyleById: '/items/theme?filter[id_theme][_eq]='
@@ -65,10 +72,37 @@ export default {
         if(this.verif && !this.start){
           this.start = true;
           this.launch();
+          this.warning_listener();
 
           document.getElementById('screen').requestFullscreen();
         }
       }, 500);
+    },
+
+
+    warning_listener(){
+      setInterval(() => {
+        axios
+          .get(this.url + this.urlWarning)
+          .then(response => {
+
+            if(response.warning){
+              this.warning = true;
+              this.id_warning = response.id;
+
+              this.launch_warning();
+
+            } else{
+              this.warning = false;
+              this.launch();
+            }
+
+          })
+          .catch(error => {
+            console.log(error);
+            this.errored = true;
+          })
+      }, 5000);
     },
 
 
@@ -85,15 +119,35 @@ export default {
           });
           this.idSequences = sqs;
 
-          // Integrate in HTML, balise 'style'
-          let style = document.createElement('style');
-          style.id = 'style_sequence';
-          document.getElementById('app').appendChild(style);
+          /** Gérer les séquences dans le temps **/
+          axios
+            .get(this.url + this.urlSequencesByTime + this.idScreen)
+            .then(response => {
+              let data2 = response.data.data;
 
-          //console.log(this.idSequences);
+              // Supprime les id des séquences qui ne sont pas dans le tableau
+              this.idSequences.forEach((id) => {
+                if(data2.includes(id)){
+                  let i = this.idSequences.indexOf(id);
+                  this.idSequences.slice(i, 1);
+                }
+              });
 
-          // Démare l'app en récupèrant les contenus de la séquences courante
-          this.nextSequence(0.001);
+
+              // Integrate in HTML, balise 'style'
+              let style = document.createElement('style');
+              style.id = 'style_sequence';
+              document.getElementById('app').appendChild(style);
+
+              //console.log(this.idSequences);
+
+              // Démare l'app en récupèrant les contenus de la séquences courante
+              this.nextSequence(0.001);
+            })
+            .catch(error => {
+              console.log(error);
+              this.errored = true;
+            });
 
         })
         .catch(error => {
@@ -104,31 +158,71 @@ export default {
     },
 
 
+    launch_warning(){
+        if(this.warning){
+
+          axios
+            .get(this.url + this.urlContentById + this.id_warning)
+            .then(response => {
+              console.log(response.data.data[0]);
+              if(response.data.data.length > 0){
+                let data = response.data.data[0];
+                this.contenu = data.content;
+
+                if(data.type === 'md' || data.type === 'txt') this.markdownToHtml();
+                else if(data.type === 'image' || data.type === 'img') this.displayImage();
+                else if(data.type === 'pdf' || data.type === 'PDF') this.displayPDF();
+
+                /**setTimeout(() => {
+                  this.launch();
+                }, data.duration*1000);**/
+              } else {
+                console.log('id_warning content is empty');
+                this.launch();
+              }
+
+            })
+            .catch(error => {
+              console.log(error);
+              this.errored = true;
+            })
+            .finally( () => { this.loading = false; } );
+        }
+    },
+
+
+
+
     getContenu(){
 
-      axios
-        .get(this.url + this.urlContentById + this.idContenus[this.iC])
-        .then(response => {
-          console.log(response.data.data[0]);
-          if(response.data.data.length > 0){
-            let data = response.data.data[0];
-            this.contenu = data.content;
+      if(!this.warning){
+        axios
+          .get(this.url + this.urlContentById + this.idContenus[this.iC])
+          .then(response => {
+            console.log(response.data.data[0]);
+            if(response.data.data.length > 0){
+              let data = response.data.data[0];
+              this.contenu = data.content;
 
-            if(data.type === 'md' || data.type === 'txt') this.markdownToHtml();
-            else if(data.type === 'image' || data.type === 'img') this.displayImage();
-            else if(data.type === 'pdf' || data.type === 'PDF') this.displayPDF();
+              if(data.type === 'md' || data.type === 'txt') this.markdownToHtml();
+              else if(data.type === 'image' || data.type === 'img') this.displayImage();
+              else if(data.type === 'pdf' || data.type === 'PDF') this.displayPDF();
 
-            this.nextContenu(data.duration);
-          } else {
-            this.nextContenu(0.001);
-          }
+              this.nextContenu(data.duration);
+            } else {
+              this.nextContenu(0.001);
+            }
 
-        })
-        .catch(error => {
-          console.log(error);
-          this.errored = true;
-        })
-        .finally( () => { this.loading = false; } );
+          })
+          .catch(error => {
+            console.log(error);
+            this.errored = true;
+          })
+          .finally( () => { this.loading = false; } );
+      } else{
+        console.log('error');
+      }
+
     },
 
     nextContenu(stand){
@@ -207,7 +301,15 @@ export default {
     },
 
     displayVideo(){
-      // A compléter
+      // Vérifie si il s'agie d'une vidéo youtube
+      if(this.content.includes('www.youtube.com/embed')){
+        document.getElementById('screen').innerHTML = "" +
+        "<iframe width=\"100vw\" height=\"100vh\" src='"+ this.content +"'> </iframe>";
+      } else{
+        document.getElementById('screen').innerHTML = "<video width=\"100vw\" height=\"100vh\" controls>" +
+            "<source src=\"/build/videos/arcnet.io(7-sec).mp4\" type=video/mp4>"+
+          "</video>";
+      }
     },
 
 
@@ -284,6 +386,9 @@ export default {
         console.error(reason);
       });
     }*/
+
+
+
 
 
   },
