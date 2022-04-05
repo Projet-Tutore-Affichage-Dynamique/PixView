@@ -76,7 +76,7 @@ export default {
             this.errored = true;
           });
     } else {
-      this.$router.push({ name: 'GC_Devices'});
+      this.$router.push({ name: 'Home'});
     }
   },
 }

@@ -13,7 +13,7 @@
               <h5 class="card-title">{{ admin.name }}</h5>
               <br>
               <strong>dispositifs :</strong>
-              <p v-for='device in devicesByAdmins[admin.name]' class="card-text">{{ device.name }}<input type="checkbox" checked disabled data-toggle="toggle"></p>
+              <p v-for='device in devicesByAdmins[admin.name]' :key='device.uuid'   class="card-text">{{ device.name }}<input type="checkbox" checked disabled data-toggle="toggle"></p>
             </div>
             <div class="card-footer"></div>
           </div>

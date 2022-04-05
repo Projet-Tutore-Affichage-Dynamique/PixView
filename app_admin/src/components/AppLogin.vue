@@ -45,14 +45,15 @@ export default {
       axios
         .get("http://docketu.iutnc.univ-lorraine.fr:62340/items/gestionnaire?filter[name][_eq]="+this.login)
         .then((response) => {
-          this.infos = response;
+          this.infos = response.data.data[0];
 
           // Vérifie si le mdp correspond et la réponse
-          if(response && bcryptjs.compareSync(this.pwd, this.infos.data.password)){
+          //console.log(this.infos.data.data[0]);
+          if(response && bcryptjs.compareSync(this.pwd, this.infos.password)){
 
-            localStorage.role = this.infos.data.role;
-            localStorage.login = this.infos.data.login;
-            localStorage.id = this.infos.data.id_gestionnaire;
+            localStorage.role = this.infos.role;
+            localStorage.login = this.infos.login;
+            localStorage.id = this.infos.id_gestionnaire;
 
             if(localStorage.role === true)
               this.$router.push({ name: 'GD_Devices' })
