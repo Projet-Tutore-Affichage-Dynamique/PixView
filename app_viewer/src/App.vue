@@ -51,12 +51,12 @@ export default {
 
       /** URL **/
       urlSequencesByScreenId: '/items/screen_sequence?filter[screen_id_screen][_eq]=',
-      urlSequencesByTime: 'http://docketu.iutnc.univ-lorraine.fr:62340/items/sequence?filter[date_start][_between]=',
+      urlSequencesByTime: '/items/sequence?filter[date_start][_between]=',
       urlIdContenusBySequenceId: '/items/contenu_sequence?fields=contenu_id_contenu&filter[sequence_id_sequence][_eq]=',
       urlContentById: '/items/contenu?filter[id_contenu][_eq]=',
 
       // Warning
-      urlWarning: 'http://docketu.iutnc.univ-lorraine.fr:62340/items/',
+      urlWarning: '/',
 
       urlIdStyleBySequence: '/items/sequence?filter[id_sequence][_eq]=',
       urlStyleById: '/items/theme?filter[id_theme][_eq]='
@@ -69,7 +69,7 @@ export default {
         if(this.verif && !this.start){
           this.start = true;
           this.launch();
-          this.warning_listener();
+          //this.warning_listener();
 
           document.getElementById('screen').requestFullscreen();
         }

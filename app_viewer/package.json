@@ -11,9 +11,9 @@
   },
   "dependencies": {
     "axios": "^0.25.0",
+    "pdfjs-dist": "^2.12.313",
     "showdown": "^2.0.0-alpha",
-    "vue": "^2.5.11",
-    "pdfjs-dist": "^2.12.313"
+    "vue": "^2.5.11"
   },
   "browserslist": [
     "> 1%",
