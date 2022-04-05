@@ -18,7 +18,7 @@
       {{ errored }}
     </aside>
     <aside v-else>
-      <spinner v-if="loading">Loading</spinner>
+      <spinner v-if="loading">Chargement</spinner>
 
       <aside v-else></aside>
     </aside>

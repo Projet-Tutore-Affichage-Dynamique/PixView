@@ -3,18 +3,15 @@
 
     <connection v-if="verif===false && start===false"></connection>
 
-    <section v-if="errored">Pas de contenu wsh</section>
+    <section v-if="errored">Pas de contenu!</section>
     <section v-else>
-      <spinner v-if="loading">Loading</spinner>
+      <spinner v-if="loading">Chargement</spinner>
 
       <section id="screen" v-else></section>
     </section>
 
   </div>
 </template>
-
-
-
 
 <script>
 import Connection from "./components/Connection";

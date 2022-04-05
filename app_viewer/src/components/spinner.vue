@@ -2,13 +2,11 @@
   <div class="lds-ring"><div></div></div>
 </template>
 
-
 <script>
 export default {
   name: "spinner"
 }
 </script>
-
 
 <style scoped>
 .lds-ring {
